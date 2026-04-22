@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"fittrack-13a4b","appId":"1:809219285205:android:74920e437d0a38ca82825c","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"fittrack-13a4b","configurations":{"android":"1:809219285205:android:74920e437d0a38ca82825c","ios":"1:809219285205:ios:db2d07ca22b8dff982825c"}}}}}}
