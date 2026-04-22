@@ -16,16 +16,15 @@ jobs:
         with:
           flutter-version: stable
 
-      - name: Enable iOS
-        run: flutter config --enable-ios
-
       - name: Get dependencies
         run: flutter pub get
 
       - name: Install CocoaPods
         run: |
           sudo gem install cocoapods
-          cd ios && pod install && cd ..
+          cd ios
+          pod install
+          cd ..
 
       - name: Build iOS
         run: flutter build ios --no-codesign
