@@ -1,4 +1,4 @@
-name: iOS Build
+name: iOS IPA Build
 
 on:
   push:
@@ -26,5 +26,14 @@ jobs:
           pod install
           cd ..
 
-      - name: Build iOS
-        run: flutter build ios --no-codesign
+      - name: Build iOS (no codesign)
+        run: flutter build ios --release --no-codesign
+
+      - name: Build IPA
+        run: flutter build ipa --no-codesign
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-ipa
+          path: build/ios/ipa/*.ipa
