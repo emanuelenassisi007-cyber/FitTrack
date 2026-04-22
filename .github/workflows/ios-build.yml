@@ -14,26 +14,36 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: stable
+          channel: 'stable'
+          cache: true # Velocizza le build successive
 
       - name: Get dependencies
         run: flutter pub get
 
       - name: Install CocoaPods
         run: |
-          sudo gem install cocoapods
           cd ios
           pod install
           cd ..
 
-      - name: Build iOS (no codesign)
+      - name: Build iOS App Bundle
+        # Costruiamo l'app senza firma.
+        # Questo genera la cartella Runner.app in build/ios/iphoneos/
         run: flutter build ios --release --no-codesign
 
-      - name: Build IPA
-        run: flutter build ipa --no-codesign
+      - name: Create IPA for Sideloading
+        # Creiamo manualmente la struttura dell'IPA (cartella Payload)
+        # e la zippiamo per renderla un file .ipa installabile
+        run: |
+          mkdir -p build/ios/iphoneos/Payload
+          cp -r build/ios/iphoneos/Runner.app build/ios/iphoneos/Payload/
+          cd build/ios/iphoneos
+          zip -r app-unsigned.ipa Payload
 
-      - name: Upload IPA
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: app-ipa
-          path: build/ios/ipa/*.ipa
+          name: app-unsigned-ipa
+          # Puntiamo al file che abbiamo zippato manualmente
+          path: build/ios/iphoneos/app-unsigned.ipa
+          if-no-files-found: error
