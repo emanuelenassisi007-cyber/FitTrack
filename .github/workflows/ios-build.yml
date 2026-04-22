@@ -9,16 +9,23 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: stable
 
+      - name: Enable iOS
+        run: flutter config --enable-ios
+
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Build iOS (no codesign)
+      - name: Install CocoaPods
+        run: |
+          sudo gem install cocoapods
+          cd ios && pod install && cd ..
+
+      - name: Build iOS
         run: flutter build ios --no-codesign
