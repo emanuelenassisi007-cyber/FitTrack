@@ -1,4 +1,4 @@
-# FitTrack 🏋️‍♂️🏃‍♂️
+# FitTrack 
 
 FitTrack è un'applicazione mobile sviluppata in **Flutter** progettata per aiutare gli utenti a monitorare le proprie attività fisiche e l'andamento del proprio peso corporeo. L'applicazione adotta un design elegante e pulito ispirato allo stile **Apple Cupertino**, offrendo un'esperienza utente fluida e nativa.
 
@@ -6,7 +6,7 @@ I dati vengono sincronizzati in tempo reale grazie all'integrazione con **Fireba
 
 ---
 
-## 🔥 Caratteristiche Principali
+##  Caratteristiche Principali
 
 *   **Riepilogo Attività in Tempo Reale:** Visualizzazione cronologica degli allenamenti (Corsa, Palestra, ecc.) recuperati direttamente da Cloud Firestore tramite `StreamBuilder`.
 *   **Dettagli dell'Allenamento:** Per ogni sessione vengono tracciati la data, il tipo di attività, le calorie bruciate e la durata precisa (ore, minuti e secondi).
@@ -16,7 +16,7 @@ I dati vengono sincronizzati in tempo reale grazie all'integrazione con **Fireba
 
 ---
 
-## 🛠️ Tecnologie Utilizzate
+##  Tecnologie Utilizzate
 
 *   **Framework:** [Flutter](https://flutter.dev/) (SDK basato su Dart)
 *   **UI Style:** Cupertino Widgets (iOS look & feel)
@@ -26,7 +26,7 @@ I dati vengono sincronizzati in tempo reale grazie all'integrazione con **Fireba
 
 ---
 
-## 📁 Struttura dei File Principali
+##  Struttura dei File Principali
 
 *   `main.dart`: Punto di ingresso dell'applicazione. Inizializza Firebase e configura il `ChangeNotifierProvider` globale.
 *   `attivita.dart`: Schermata dedicata al riepilogo delle attività fisiche ed allenamenti, strutturata con un layout a schede ed aggiornamenti live.
@@ -36,7 +36,7 @@ I dati vengono sincronizzati in tempo reale grazie all'integrazione con **Fireba
 
 ---
 
-## 🚀 Configurazione e Installazione
+##  Configurazione e Installazione
 
 Per avviare il progetto sul tuo computer locale, segui questi passaggi:
 
@@ -68,7 +68,7 @@ L'applicazione è configurata per interfacciarsi con Firebase. Se desideri utili
 flutterfire configure
 ```
 
-> 💡 **Nota:** Questo comando sovrascriverà automaticamente il file `lib/firebase_options.dart` con le credenziali del tuo database personale.
+>  **Nota:** Questo comando sovrascriverà automaticamente il file `lib/firebase_options.dart` con le credenziali del tuo database personale.
 
 ### 4. Avviare l'applicazione
 
