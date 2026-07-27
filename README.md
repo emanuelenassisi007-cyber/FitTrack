@@ -1,78 +1,78 @@
 # FitTrack 
 
-FitTrack è un'applicazione mobile sviluppata in **Flutter** progettata per aiutare gli utenti a monitorare le proprie attività fisiche e l'andamento del proprio peso corporeo. L'applicazione adotta un design elegante e pulito ispirato allo stile **Apple Cupertino**, offrendo un'esperienza utente fluida e nativa.
+FitTrack is a mobile app developed in Flutter designed to help users track their physical activity and weight loss. The app features a clean, elegant design inspired by Apple's Cupertino style, offering a seamless, native user experience.
 
-I dati vengono sincronizzati in tempo reale grazie all'integrazione con **Firebase Firestore**, mentre la gestione dello stato globale dell'applicazione è affidata a **Provider**.
-
----
-
-##  Caratteristiche Principali
-
-*   **Riepilogo Attività in Tempo Reale:** Visualizzazione cronologica degli allenamenti (Corsa, Palestra, ecc.) recuperati direttamente da Cloud Firestore tramite `StreamBuilder`.
-*   **Dettagli dell'Allenamento:** Per ogni sessione vengono tracciati la data, il tipo di attività, le calorie bruciate e la durata precisa (ore, minuti e secondi).
-*   **Monitoraggio del Peso Corporeo:** Possibilità di registrare il proprio peso quotidianamente.
-*   **Grafici Intuitivi:** Visualizzazione dell'andamento del peso nel tempo tramite grafici a linee interattivi e sfumati, implementati con la libreria `fl_chart`.
-*   **Storico delle Misurazioni:** Un'interfaccia a griglia (Grid View) mostra in modo chiaro tutte le pesate storiche memorizzate nel database.
+Data is synchronized in real time thanks to the integration with **Firebase Firestore**, while the management of the global state of the application is entrusted to **Provider**.
 
 ---
 
-##  Tecnologie Utilizzate
+##  Main Features
 
-*   **Framework:** [Flutter](https://flutter.dev/) (SDK basato su Dart)
+* **Real-Time Activity Summary:** View your workout history (Running, Gym, etc.) retrieved directly from Cloud Firestore via `StreamBuilder`.
+* **Workout Details:** Each session tracks the date, type of activity, calories burned, and precise duration (hours, minutes, and seconds).
+* **Body Weight Tracking:** Record your weight daily.
+* **Intuitive Graphs:** View your weight trends over time with interactive, gradient line graphs, implemented with the `fl_chart` library.
+* **History Measurements:** A grid view clearly displays all historical weigh-ins stored in the database.
+
+---
+
+##  Technologies Used
+
+*   **Framework:** [Flutter](https://flutter.dev/) (SDK based on Dart)
 *   **UI Style:** Cupertino Widgets (iOS look & feel)
-*   **Database & Backend:** [Firebase Core](https://firebase.google.com/docs/flutter/setup) & [Cloud Firestore](https://firebase.google.com/docs/firestore) (Sincronizzazione e persistenza Cloud)
-*   **State Management:** [Provider](https://pub.dev/packages/provider) (`ChangeNotifier` per la gestione reattiva dei dati locali)
-*   **Grafici:** [fl_chart](https://pub.dev/packages/fl_chart) (Per il rendering del grafico del peso)
+*   **Database & Backend:** [Firebase Core](https://firebase.google.com/docs/flutter/setup) & [Cloud Firestore](https://firebase.google.com/docs/firestore) (Cloud Sync and Persistence)
+*   **State Management:** [Provider](https://pub.dev/packages/provider) (`ChangeNotifier` for reactive local data management)
+*   **Graphs:** [fl_chart](https://pub.dev/packages/fl_chart) (For weight graph rendering)
 
 ---
 
-##  Struttura dei File Principali
+## Main File Structure
 
-*   `main.dart`: Punto di ingresso dell'applicazione. Inizializza Firebase e configura il `ChangeNotifierProvider` globale.
-*   `attivita.dart`: Schermata dedicata al riepilogo delle attività fisiche ed allenamenti, strutturata con un layout a schede ed aggiornamenti live.
-*   `grafici.dart`: Schermata per l'inserimento del peso, la visualizzazione del grafico temporale e la griglia dello storico dei progressi.
-*   `attivita_provider.dart`: Provider per la gestione dello stato locale della lista dei dati dell'attività.
-*   `firebase_options.dart`: Configurazione automatica dei parametri di connessione per le piattaforme Android e iOS (generata tramite FlutterFire CLI).
+* `main.dart`: Application entry point. Initializes Firebase and configures the global `ChangeNotifierProvider`.
+* `attivita.dart`: Screen dedicated to summarizing physical activities and workouts, structured with a tabbed layout and live updates.
+* `grafici.dart`: Screen for entering weight, displaying the time graph, and displaying the progress history grid.
+* `attivita_provider.dart`: Provider for managing the local state of the activity data list.
+* `firebase_options.dart`: Automatic configuration of connection parameters for Android and iOS platforms (generated via FlutterFire CLI).
 
 ---
 
-##  Configurazione e Installazione
+##  Configuration & Installation
 
-Per avviare il progetto sul tuo computer locale, segui questi passaggi:
+To launch the project on your local computer, follow these steps:
 
-### Prerequisiti
-Assicurati di avere Flutter installato sul tuo sistema. In caso contrario, segui la [guida ufficiale di Flutter](https://docs.flutter.dev/get-started/install).
+### Prerequisites
+Make sure you have Flutter installed on your system. If not, follow the [official Flutter guide](https://docs.flutter.dev/get-started/install).
 
-### 1. Clonare la repository
+### 1. Clone the repository
 ```bash
 git clone [https://github.com/emanuelenassisi007-cyber/FitTrack.git](https://github.com/emanuelenassisi007-cyber/FitTrack.git)
 cd FitTrack
 ```
-### 2. Installare le dipendenze
+### 2. Install Dependencies
 
-Esegui il comando nel terminale per scaricare tutti i pacchetti necessari definiti nel file `pubspec.yaml`:
+Run the following command in the terminal to download all the necessary packages defined in the `pubspec.yaml` file:
 
 ```bash
 flutter pub get
 ```
 
-### 3. Configurazione di Firebase
+### 3. Configure Firebase
 
-L'applicazione è configurata per interfacciarsi con Firebase. Se desideri utilizzare il tuo database personale, segui questi passaggi:
+The application is configured to interface with Firebase. If you want to use your own database, follow these steps:
 
-1. Crea un nuovo progetto sulla [Firebase Console](https://google.com).
-2. Abilita **Cloud Firestore** all'interno del progetto.
-3. Installa la **FlutterFire CLI** sul tuo computer ed esegui il comando:
+1. Create a new project in the Firebase Console (https://google.com).
+2. Enable Cloud Firestore within the project.
+3. Install the FlutterFire CLI on your computer and run the command:
 
 ```bash
 flutterfire configure
 ```
 
->  **Nota:** Questo comando sovrascriverà automaticamente il file `lib/firebase_options.dart` con le credenziali del tuo database personale.
+> **Note:** This command will automatically overwrite the `lib/firebase_options.dart` file with your personal database credentials.
 
-### 4. Avviare l'applicazione
+### 4. Launch the application
 
-Collega un emulatore o un dispositivo fisico e lancia il progetto con il seguente comando:
+Connect an emulator or physical device and launch the project with the following command:
 
 ```bash
 flutter run
@@ -80,9 +80,9 @@ flutter run
 
 ---
 
-## ⚠️ Note sulla Sicurezza
+## ⚠️ Security Notes
 
 > [!IMPORTANT]
-> Il file `firebase_options.dart` contiene le chiavi di configurazione del backend. 
+> The `firebase_options.dart` file contains the backend configuration keys.
 
-Se decidi di rendere pubblica questa repository, assicurati di proteggere adeguatamente le regole di scrittura e lettura del tuo database su **Cloud Firestore (Firestore Rules)**. Questo passaggio è fondamentale per evitare accessi non autorizzati o utilizzi impropri delle tue risorse.
+If you decide to make this repository public, be sure to adequately protect your database's read and write rules on **Cloud Firestore (Firestore Rules)**. This step is essential to prevent unauthorized access or misuse of your resources.
